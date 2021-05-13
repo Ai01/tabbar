@@ -33,10 +33,10 @@ class WebviewManager(activity: AppCompatActivity, configData: JSONArray) {
             transaction.add(R.id.webviewPart, newFragment, path)
             transaction.commitNow()
 
-            Log.println(Log.WARN, "webviewManager is hidden $index", newFragment.isHidden.toString());
-            Log.println(Log.WARN, "webviewManager is added $index", newFragment.isAdded.toString());
+            Log.println(Log.WARN, "webviewManager hidden $index", newFragment.isHidden.toString());
+            Log.println(Log.WARN, "webviewManager added $index", newFragment.isAdded.toString());
             Log.println(Log.WARN, "webviewManager is url $index", newFragment.pageUrl.toString());
-            Log.println(Log.WARN, "webviewManager is visible $index", newFragment.isVisible.toString());
+            Log.println(Log.WARN, "webviewManager visible $index", newFragment.isVisible.toString());
         } else {
             val transaction = fragmentManager.beginTransaction()
             if(lastFragment != null) {
