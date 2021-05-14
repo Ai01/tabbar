@@ -15,6 +15,7 @@ class TabbarView(context: Context) : LinearLayout(context) {
         createTabBarView(config);
     }
 
+    // TODO: 和闫占坤讨论为什么这里不放到constructor中
     var callbackForSelect: TabSelectCallback?=null
         set
 

@@ -19,7 +19,11 @@ import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONArray
 import org.json.JSONObject
 
+
+// done: kotlin的构造函数学习
 class MainActivity : AppCompatActivity() {
+
+    // TODO: js bridge实现，来替换获取config
     // 获取mock的tab bar配置
     fun getMockConfig():JSONArray {
         var jsonConfigForTabbar = JSONArray();
@@ -43,19 +47,29 @@ class MainActivity : AppCompatActivity() {
     }
 
     var configForTabbar: JSONArray = getMockConfig();
+
+    // done webView manager中的面向对象思想,为什么这么设计,好处在哪里
     var webviewFragmentManager: WebviewManager = WebviewManager(this, configForTabbar)
 
+    // TODO activity的生命周期，activity作为context如何理解
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        var tabBarView = TabbarView(this, configForTabbar);
+        // TODO android中自定义视图的实现总结
+        var tabBarView = TabbarView(this, configForTabbar)
+
+        // TODO 学习匿名对象
+        // TODO 先定义一个接口，然后实现这个接口。泛型
         tabBarView.callbackForSelect = object: TabSelectCallback {
             override fun onSelect(index: Int, data: JSONObject) {
                 webviewFragmentManager.changeActiveWebviewFragment(index)
             }
         }
 
+        // TODO R在android中的意义
+        // TODO android的ui编程的基本思想框架
         setContentView(R.layout.activity_main)
+
         var mainView = findViewById<FrameLayout>(R.id.fl_rootview)
         var parms = FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT,150)
         parms.gravity=Gravity.BOTTOM
