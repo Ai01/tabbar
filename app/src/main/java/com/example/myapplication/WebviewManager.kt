@@ -1,7 +1,6 @@
 package com.example.myapplication
 
 import android.util.Log
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import org.json.JSONArray
 
